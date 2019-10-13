@@ -9,7 +9,7 @@ var ctr = 1;
 app.get('/', function (req, res) {
   //res.sendFile(__dirname + '/vista/index.html');
   res.send(cant.toString());
-  cant++;
+//  cant++;
   //socket2.emit('news', { msg: req.query.BPM });
 });
 var cant = 0;
@@ -26,8 +26,8 @@ io.on('connection', function (socket) {
   socket.on('my other event', function (data) {
   });
 });
+var puerto = process.env.PORT || 4000;
 */
-
-server.listen(5000, function(){
-  console.log("server started on port - 5000")
+server.listen(puerto, function(){
+  console.log("Servidor iniciado en el puerto: "+ puerto)
 });

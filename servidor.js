@@ -7,10 +7,11 @@ rutas.get('/', function (req, res) {
 //  cant++;
 });
 var cant = 0;
-rutas.post('/pet', function(req, res){
+rutas.post('/pet', (req, res)=>{
   cant++;
   console.log(cant);
 	console.log(req.body);
+  res.redirect("/")
 	//io.sockets.emit('transmit', { msg: req.query});
 });
 /*

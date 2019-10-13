@@ -26,8 +26,8 @@ io.on('connection', function (socket) {
   socket.on('my other event', function (data) {
   });
 });
-var puerto = process.env.PORT || 4000;
 */
+var puerto = process.env.PORT || 4000;
 server.listen(puerto, function(){
   console.log("Servidor iniciado en el puerto: "+ puerto)
 });

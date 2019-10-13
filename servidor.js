@@ -7,7 +7,7 @@ rutas.get('/', function (req, res) {
 //  cant++;
 });
 var cant = 0;
-rutas.post('/peticion1', function(req, res){
+rutas.post('/pet', function(req, res){
   cant++;
   console.log(cant);
 	console.log(req.body);

@@ -3,7 +3,8 @@ var app = express();
 const rutas = express.Router();
 rutas.get('/', function (req, res) {
   //res.sendFile(__dirname + '/vista/index.html');
-  res.send(cant.toString());
+  var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
+  res.send(respuesta);
 //  cant++;
 });
 var cant = 0;

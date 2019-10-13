@@ -1,19 +1,13 @@
-var app = require('express')();
-var server = require('http').Server(app);
-//var io = require('socket.io')(server);
-
-var socket2;
-var ctr = 1;
-//app.use(express.static('views'));
-
-app.get('/', function (req, res) {
+var express = require('express');
+var app = express();
+const rutas = express.Router();
+rutas.get('/', function (req, res) {
   //res.sendFile(__dirname + '/vista/index.html');
   res.send(cant.toString());
 //  cant++;
-  //socket2.emit('news', { msg: req.query.BPM });
 });
 var cant = 0;
-app.post('/peticion1', function(req, res){
+rutas.post('/peticion1', function(req, res){
   cant++;
   console.log(cant);
 	console.log(req.body);
@@ -27,7 +21,8 @@ io.on('connection', function (socket) {
   });
 });
 */
+app.use(rutas);
 var puerto = process.env.PORT || 4000;
-server.listen(puerto, function(){
+app.listen(puerto, function(){
   console.log("Servidor iniciado en el puerto: "+ puerto)
 });

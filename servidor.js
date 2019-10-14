@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var http = require('http');
+var socket = require('socket.io');
 
 const rutas = express.Router();
 rutas.get('/', function (req, res) {
@@ -31,6 +31,11 @@ io.on('connection', function (socket) {
 */
 app.use(rutas);
 var puerto = process.env.PORT || 3000;
-app.listen(puerto, function(){
+var server = http.createServer(app).listen(puerto, function(){
   console.log("Servidor iniciado en el puerto: "+ puerto)
+});
+
+var io = socket.listen(server);
+io.sockets.on('connection', function () {
+  console.log('hello world im a hot socket');
 });

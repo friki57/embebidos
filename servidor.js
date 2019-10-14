@@ -18,7 +18,7 @@ rutas.post('/', (req, res)=>{
   var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
 
   io.emit("Cambios",respuesta)
-  console.log("Llegó:",req);
+  console.log("Llegó:",req.query);
 	//io.sockets.emit('transmit', { msg: req.query});
 });
 /*

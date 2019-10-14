@@ -8,14 +8,17 @@ const rutas = express.Router();
 rutas.get('/', function (req, res) {
   res.sendFile(__dirname + '/vista/index.html');
   var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
-  
+
 //  cant++;
 });
 var cant = 0;
+
 rutas.post('/', (req, res)=>{
   cant++;
   var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
+
   io.emit("Cambios",respuesta)
+  console.log("emitiendo",respuesta);
 	//io.sockets.emit('transmit', { msg: req.query});
 });
 /*

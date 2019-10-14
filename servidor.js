@@ -8,7 +8,7 @@ rutas.get('/', function (req, res) {
 //  cant++;
 });
 var cant = 0;
-rutas.post('/pet', (req, res)=>{
+rutas.post('/', (req, res)=>{
   cant++;
   console.log(cant);
 	console.log(req.body);
@@ -24,7 +24,7 @@ io.on('connection', function (socket) {
 });
 */
 app.use(rutas);
-var puerto = process.env.PORT || 4000;
+var puerto = process.env.PORT || 3000;
 app.listen(puerto, function(){
   console.log("Servidor iniciado en el puerto: "+ puerto)
 });

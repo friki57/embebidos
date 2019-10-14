@@ -3,8 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src=”/socket.io/socket.io.js”></script>
   </head>
   <body>
-    Servido de embebidos
+    Servidor de embebidos
+    <div class="" id="datos">
+
+    </div>
+    <script type="text/javascript">
+    var socket = io();
+    socket.on("Cambios",(data)=>
+    {
+      document.getElementById("datos").innerHTML = data.toString();
+    }));
+
+    </script>
   </body>
 </html>

@@ -1,18 +1,21 @@
 var express = require('express');
 var app = express();
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 const rutas = express.Router();
 rutas.get('/', function (req, res) {
-  //res.sendFile(__dirname + '/vista/index.html');
+  res.sendFile(__dirname + '/vista/index.html');
   var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
-  res.send(respuesta);
+  
 //  cant++;
 });
 var cant = 0;
 rutas.post('/', (req, res)=>{
   cant++;
-  console.log(cant);
-	console.log(req.body);
-  res.redirect("/")
+  var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
+  io.emit("Cambios",respuesta)
 	//io.sockets.emit('transmit', { msg: req.query});
 });
 /*

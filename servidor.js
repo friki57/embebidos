@@ -21,6 +21,7 @@ rutas.post('/', (req, res)=>{
   console.log("Llegó:",req.query);
 	//io.sockets.emit('transmit', { msg: req.query});
 });
+app.use(express.static(path.join(__dirname,"/vista")));
 /*
 io.on('connection', function (socket) {
   socket2 = socket;

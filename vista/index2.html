@@ -12,8 +12,8 @@
         <h1 style="font-size:40px;margin-top:80px;"> Welcome to PachaWeb</h1>
       </div>
       <div class="espacio" style="">
-        <labe class="lab"><img src="humed.png" width="40px" height="40px">Temperatura actual: <label id="temperatura"></label></label><br><br>
-        <labe class="lab"><img src="hot.png" width="60px" height="60px">Humedad actual: <label id="humedad"></label></label><br><br>
+        <labe class="lab"><img src="humed.png" width="40px" height="40px">Temperatura actual: <label id="tem"></label></label><br><br>
+        <labe class="lab"><img src="hot.png" width="60px" height="60px">Humedad actual: <label id="hum"></label></label><br><br>
         <labe class="lab"><img src="breeze.png" width="40px" height="40px"> Calidad del aire actual: <label id="calidadAire"></label></label><br><br>
       </div>
     </div>
@@ -21,7 +21,8 @@
     var socket = io();
     socket.on("Cambios",(data)=>
     {
-      document.getElementById("datos").innerHTML = data.toString();
+      document.getElementById("tem").innerHTML = data.tem.toString();
+      document.getElementById("hum").innerHTML = data.hum.toString();
     });
 
     </script>

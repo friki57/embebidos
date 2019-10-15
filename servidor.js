@@ -13,7 +13,11 @@ var cant = 0;
 
 rutas.post('/', (req, res)=>{
   var respuesta = "Temperatura: " + req.query.sensor1Val.toString() + "°C Humedad: " + req.query.sensor2Val.toString();
-  io.emit("Cambios",respuesta)
+  var resp = {
+    tem: req.query.sensor1Val.toString(),
+    hum: req.query.sensor2Val.toString()
+  }
+  io.emit("Cambios",resp)
   console.log("Llegó:",req.query);
 	//io.sockets.emit('transmit', { msg: req.query});
 });

@@ -6,7 +6,7 @@ var socket = require('socket.io');
 
 const rutas = express.Router();
 rutas.get('/', function (req, res) {
-  res.sendFile(__dirname + '/vista/index.html');
+  res.sendFile(__dirname + '/vista/index2.html');
   var respuesta = "Temperatura: " + 0 + "°C Humedad: " + 0;
 });
 var cant = 0;

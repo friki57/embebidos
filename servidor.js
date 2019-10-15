@@ -7,18 +7,14 @@ var socket = require('socket.io');
 const rutas = express.Router();
 rutas.get('/', function (req, res) {
   res.sendFile(__dirname + '/vista/index.html');
-  var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
-
-//  cant++;
+  var respuesta = "Temperatura: " + 0 + "°C Humedad: " + 0;
 });
 var cant = 0;
 
 rutas.post('/', (req, res)=>{
-  cant++;
-  var respuesta = "Cantidad: " + cant.toString() + " Puerto: " + puerto.toString();
-
+  var respuesta = "Temperatura: " + req.query.sensor1Val.toString() + "°C Humedad: " + req.query.sensor2Val.toString();
   io.emit("Cambios",respuesta)
-  console.log("Llegó:",req.body,req.params,req.query);
+  console.log("Llegó:",req.query);
 	//io.sockets.emit('transmit', { msg: req.query});
 });
 /*

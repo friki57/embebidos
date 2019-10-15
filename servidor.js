@@ -15,7 +15,7 @@ var cant = 0;
 rutas.post('/', (req, res)=>{
   var respuesta = "Temperatura: " + req.query.sensor1Val.toString() + "°C Humedad: " + req.query.sensor2Val.toString();
   var unidad = 10.24;
-  var aire = Math.floor(req.query.sensor3Val / unidad);
+  var aire = Math.round((req.query.sensor3Val / unidad)*100)/100;
   var resp = {
     tem: req.query.sensor1Val.toString(),
     hum: req.query.sensor2Val.toString(),

@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>PachaWeb Estación Metereológica</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
   </head>
   <body>
-    <div class="cv1">
-      <div class="cv">
-        <h1 style="font-size:40px;margin-top:80px;"> Welcome to PachaWeb</h1>
-      </div>
-      <div class="espacio" style="">
-        <labe class="lab"><img src="humed.png" width="40px" height="40px">Temperatura actual: <label id="tem"></label></label><br><br>
-        <labe class="lab"><img src="hot.png" width="60px" height="60px">Humedad actual: <label id="hum"></label></label><br><br>
-        <labe class="lab"><img src="breeze.png" width="40px" height="40px"> Calidad del aire actual: <label id="calidadAire"></label></label><br><br>
-      </div>
+    Servidor de embebidos
+    <div class="" id="datos">
+
     </div>
     <script type="text/javascript">
     var socket = io();
     socket.on("Cambios",(data)=>
     {
-      document.getElementById("tem").innerHTML = data.tem.toString();
-      document.getElementById("hum").innerHTML = data.hum.toString();
+      document.getElementById("datos").innerHTML = data.toString();
     });
 
     </script>

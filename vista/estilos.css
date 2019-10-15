@@ -1,0 +1,27 @@
+body
+{
+  height: 100%;
+  background: url(1.jpg);
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+}
+.cv1
+{
+  width: 80%;
+  height: auto;
+  text-align: center;
+  background: rgba(254, 255, 255, 0.60);
+}
+.lab
+{
+  font-size: 30px;
+}
+.espacio
+{
+  padding: 80px;
+}
+.center{
+  display: flex;
+  justify-content: center;
+}

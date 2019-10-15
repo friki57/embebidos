@@ -14,7 +14,7 @@
       <div class="espacio" style="">
         <labe class="lab"><img src="humed.png" width="40px" height="40px">Temperatura actual: <label id="tem"></label></label><br><br>
         <labe class="lab"><img src="hot.png" width="60px" height="60px">Humedad actual: <label id="hum"></label></label><br><br>
-        <labe class="lab"><img src="breeze.png" width="40px" height="40px"> Calidad del aire actual: <label id="calidadAire"></label></label><br><br>
+        <labe class="lab"><img src="breeze.png" width="40px" height="40px"> Calidad del aire actual: <label id="gas"></label></label><br><br>
       </div>
     </div>
     <script type="text/javascript">
@@ -23,6 +23,8 @@
     {
       document.getElementById("tem").innerHTML = data.tem.toString();
       document.getElementById("hum").innerHTML = data.hum.toString();
+      document.getElementById("gas").innerHTML = data.gas.toString();
+      
     });
 
     </script>

@@ -36,7 +36,7 @@ io.on('connection', function (socket) {
 */
 app.use(rutas);
 var puerto = 3000;
-var server = http.createServer(app).listen(puerto, function(){
+var server = http.createServer(app).listen(puerto,'209.50.53.81', function(){
   console.log("Servidor iniciado en el puerto: "+ puerto)
 });
 

@@ -35,7 +35,7 @@ io.on('connection', function (socket) {
 });
 */
 app.use(rutas);
-var puerto = process.env.PORT || 3000;
+var puerto = 3000;
 var server = http.createServer(app).listen(puerto, function(){
   console.log("Servidor iniciado en el puerto: "+ puerto)
 });

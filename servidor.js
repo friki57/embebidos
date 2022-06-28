@@ -12,6 +12,16 @@ rutas.get('/', function (req, res) {
 });
 var cant = 0;
 rutas.get('/s', function (req, res) {
+var respuesta = "Temperatura: " + req.query.temp.toString() + "°C Humedad: " + req.query.hume.toString();
+  var unidad = 10.24;
+  var aire = Math.round((req.query.gas / unidad)*100)/100;
+  var resp = {
+    tem: req.query.temp.toString(),
+    hum: req.query.hume.toString(),
+    gas: aire.toString()
+  }
+  io.emit("Cambios",resp)
+  console.log("Llegó:",req.query);
   res.send("si")
 });
 rutas.post('/', (req, res)=>{

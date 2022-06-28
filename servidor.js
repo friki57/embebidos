@@ -46,7 +46,7 @@ var datetime = "" + currentdate.getDate() + "/"
     gas: req.params.lluvia.toString(),
     lluvia: req.params.lluvia.toString(),
     suelo: req.params.suelo.toString(),
-    fecha: datetime
+    fecha: currentdate
   }
   io.emit("Cambios",resp)
   console.log("Llegó:",req.params);

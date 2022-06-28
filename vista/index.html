@@ -50,7 +50,7 @@
               let hume = row.insertCell(2);
               hume.innerHTML = item.hume;
               let gas = row.insertCell(3);
-              gas.innerHTML = item.gas;
+              gas.innerHTML = item.gas/4095 * 100;
               let lluvia = row.insertCell(4);
               lluvia.innerHTML = item.lluvia;
               let suelo = row.insertCell(5);

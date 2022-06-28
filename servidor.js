@@ -17,8 +17,8 @@ rutas.post('/', (req, res)=>{
   var unidad = 10.24;
   var aire = Math.round((req.query.gas / unidad)*100)/100;
   var resp = {
-    tem: req.query.sensor1Val.toString(),
-    hum: req.query.sensor2Val.toString(),
+    tem: req.query.temp.toString(),
+    hum: req.query.hume.toString(),
     gas: aire.toString()
   }
   io.emit("Cambios",resp)
@@ -36,7 +36,7 @@ io.on('connection', function (socket) {
 */
 app.use(rutas);
 var puerto = 3000;
-var server = http.createServer(app).listen(puerto,'83.229.86.168', function(){
+var server = http.createServer(app).listen(puerto, function(){
   console.log("Servidor iniciado en el puerto: "+ puerto)
 });
 

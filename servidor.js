@@ -12,12 +12,13 @@ rutas.get('/', function (req, res) {
 });
 var cant = 0;
 rutas.get('/s/:temp/:hume/:gas/:lluvia/:suelo', function (req, res) {
-  var respuesta = "Temperatura: " + req.query.temp.toString() + "°C Humedad: " + req.query.hume.toString();
+  console.log(req.params)
+  var respuesta = "Temperatura: " + req.params.temp.toString() + "°C Humedad: " + req.params.hume.toString();
   var unidad = 10.24;
-  var aire = Math.round((req.query.gas / unidad)*100)/100;
+  var aire = Math.round((req.params.gas / unidad)*100)/100;
   var resp = {
-    tem: req.query.temp.toString(),
-    hum: req.query.hume.toString(),
+    tem: req.params.temp.toString(),
+    hum: req.params.hume.toString(),
     gas: aire.toString()
   }
   io.emit("Cambios",resp)

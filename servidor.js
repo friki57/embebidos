@@ -22,7 +22,8 @@ const datosSchema = Schema({
     hume: Number,
     gas: Number,
     lluvia: Number,
-    suelo: Number
+    suelo: Number,
+    fecha: String
 });
 var Datos = mongoose.model('datos', datosSchema);
 

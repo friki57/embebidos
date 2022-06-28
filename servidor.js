@@ -37,6 +37,7 @@ rutas.get('/s/:temp/:hume/:gas/:lluvia/:suelo', function (req, res) {
     gas: req.params.lluvia.toString(),
     lluvia: req.params.lluvia.toString(),
     suelo: req.params.suelo.toString(),
+    fecha: (new Date()).toString()
   }
   io.emit("Cambios",resp)
   console.log("Llegó:",req.params);

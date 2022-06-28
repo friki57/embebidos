@@ -33,6 +33,7 @@ rutas.get('/s/:temp/:hume/:gas/:lluvia/:suelo', function (req, res) {
   var unidad = 10.24;
   var aire = Math.round((req.params.gas / unidad)*100)/100;
   var currentdate = new Date(); 
+  req.params.fecha = currentdate
 var datetime = "" + currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getFullYear() + " @ "  

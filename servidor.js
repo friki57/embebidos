@@ -11,7 +11,9 @@ rutas.get('/', function (req, res) {
   var respuesta = "Temperatura: " + 0 + "°C Humedad: " + 0;
 });
 var cant = 0;
-
+rutas.get('/s', function (req, res) {
+  res.send("si")
+});
 rutas.post('/', (req, res)=>{
   var respuesta = "Temperatura: " + req.query.temp.toString() + "°C Humedad: " + req.query.hume.toString();
   var unidad = 10.24;

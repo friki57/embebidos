@@ -12,9 +12,18 @@
         <h1 style="font-size:40px;margin-top:80px;"> Welcome to PachaWeb</h1>
       </div>
       <div class="espacio" style="">
-        <labe class="lab"><img src="humed.png" width="40px" height="40px">Temperatura actual: <label id="tem"></label></label><br><br>
-        <labe class="lab"><img src="hot.png" width="60px" height="60px">Humedad actual: <label id="hum"></label></label><br><br>
-        <labe class="lab"><img src="breeze.png" width="40px" height="40px"> Calidad del aire actual: <label id="gas"></label>%</label><br><br>
+        <table id="myTable" class="table table-borderless table-striped table-earning">
+          <thead>
+            <tr>
+              <th>date</th>
+              <th>file name</th>
+            </tr>
+          </thead>
+          <tbody id="testBody"></tbody>
+        </table>
+        <script>
+
+        </script>
       </div>
     </div>
     <script type="text/javascript">
@@ -24,12 +33,30 @@
         .then(response => response.text())
         .then(data => {
           data = JSON.parse(data)
-          console.log(data)
+          console.log(data);
+          function loadTableData(items) {
+            const table = document.getElementById("testBody");
+            items.forEach( item => {
+              let row = table.insertRow();
+              let date = row.insertCell(0);
+              date.innerHTML = item.fecha;
+              let temp = row.insertCell(1);
+              temp.innerHTML = item.temp;
+              let hume = row.insertCell(1);
+              hume.innerHTML = item.hume;
+              let gas = row.insertCell(1);
+              gas.innerHTML = item.gas;
+              let lluvia = row.insertCell(1);
+              lluvia.innerHTML = item.lluvia;
+              let suelo = row.insertCell(1);
+              suelo.innerHTML = item.suelo;
+            });
+          }
+          loadTableData(data);
         });
   }
-  var dolar = 0, euro = 0;
   pedirDatos();
-  setInterval(pedirDatos,5000)
+  setInterval(pedirDatos,10000)
 
     </script>
   </body>

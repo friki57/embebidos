@@ -10,9 +10,24 @@ rutas.get('/', function (req, res) {
   res.sendFile(__dirname + '/vista/index2.html');
   var respuesta = "Temperatura: " + 0 + "°C Humedad: " + 0;
 });
+
+const mongoose = require("mongoose");
+mongoose.connect('mongodb://localhost/telemedicina')
+.then(db => console.log('db connected'))
+.catch(err => console.log(err));
+const Schema = mongoose.Schema;
+
+const datosSchema = Schema({
+    temp: Number,
+    hume: Number,
+    gas: Number,
+    lluvia: Number,
+    suelo: Number
+});
+var Datos = mongoose.model('datos', datosSchema);
+
 var cant = 0;
 rutas.get('/s/:temp/:hume/:gas/:lluvia/:suelo', function (req, res) {
-  console.log(req.params)
   var respuesta = "Temperatura: " + req.params.temp.toString() + "°C Humedad: " + req.params.hume.toString();
   var unidad = 10.24;
   var aire = Math.round((req.params.gas / unidad)*100)/100;
@@ -22,8 +37,30 @@ rutas.get('/s/:temp/:hume/:gas/:lluvia/:suelo', function (req, res) {
     gas: aire.toString()
   }
   io.emit("Cambios",resp)
-  console.log("Llegó:",req.query);
-  res.send("si")
+  console.log("Llegó:",req.params);
+  var datos = new Datos(req.params);
+  datos.save((error, resp) => {
+    if (!error) {
+        res.send("si")
+    }
+    else {
+      console.log("Error ingresando en la tabla: ", error);
+        res.send("no")
+    }
+  });
+
+});
+rutas.get('/leer', function (req, res) {
+    Datos.find((error, resp) => {
+      if (!error) {
+        console.log(resp);
+        res.send(resp)
+      }
+      else {
+        console.log("error buscando a uno en la tabla: ", error);
+        res.send("No")
+      }
+    });
 });
 rutas.post('/', (req, res)=>{
   var respuesta = "Temperatura: " + req.query.temp.toString() + "°C Humedad: " + req.query.hume.toString();

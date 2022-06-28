@@ -40,6 +40,7 @@
           console.log(data);
           function loadTableData(items) {
             const table = document.getElementById("testBody");
+            table.innerHTML = "";
             items.forEach( item => {
               let row = table.insertRow();
               let date = row.insertCell(0);

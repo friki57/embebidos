@@ -12,7 +12,7 @@ rutas.get('/', function (req, res) {
 });
 
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost/telemedicina')
+mongoose.connect('mongodb://localhost/estacion')
 .then(db => console.log('db connected'))
 .catch(err => console.log(err));
 const Schema = mongoose.Schema;

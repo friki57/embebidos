@@ -32,9 +32,11 @@ rutas.get('/s/:temp/:hume/:gas/:lluvia/:suelo', function (req, res) {
   var unidad = 10.24;
   var aire = Math.round((req.params.gas / unidad)*100)/100;
   var resp = {
-    tem: req.params.temp.toString(),
-    hum: req.params.hume.toString(),
-    gas: aire.toString()
+    temp: req.params.temp.toString(),
+    hume: req.params.hume.toString(),
+    gas: req.params.lluvia.toString(),
+    lluvia: req.params.lluvia.toString(),
+    suelo: req.params.suelo.toString(),
   }
   io.emit("Cambios",resp)
   console.log("Llegó:",req.params);
